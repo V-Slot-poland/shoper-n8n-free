@@ -33,8 +33,6 @@ Oferujemy gotowe rozwiązanie:
 - 🔧 **Dbamy o aktualizacje** i poprawki
 - 💬 **Dedykowany support** email/telefon
 
-**Cena:** od 99 zł/miesiąc (w zależności od liczby workflow)
-
 ### 3️⃣ Dedykowane rozwiązania (PRO)
 **Potrzebujesz czegoś więcej niż podstawowe flow?**
 
@@ -44,8 +42,6 @@ Tworzymy zaawansowane automatyzacje:
 - 📊 Zaawansowana analityka i raporty
 - 🤖 AI dostosowane do Twojej branży
 - 💼 Pełne SLA i wsparcie
-
-**Cena:** od 997 zł (jednorazowo) lub abonament
 
 👉 **[Umów bezpłatną konsultację](https://baseai.pl)**
 
@@ -214,8 +210,6 @@ Przejdź do wybranego katalogu i postępuj według instrukcji w README:
 | Dedykowany support email | ❌ | ✅ |
 | Pełna instalacja i konfiguracja | ❌ | ✅ |
 | Dostosowanie do firmy | ❌ | ✅ |
-
-**Cena PRO:** 297-997 zł (jednorazowo lub abonament)
 
 👉 **[Zobacz wersję PRO na BaseAI.pl](https://baseai.pl/automatyzacje-shoper)**
 
