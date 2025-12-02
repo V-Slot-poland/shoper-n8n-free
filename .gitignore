@@ -1,0 +1,31 @@
+# Credentials and secrets
+*.env
+.env*
+credentials.json
+config.json
+
+# Node modules (if any)
+node_modules/
+package-lock.json
+
+# n8n local data
+.n8n/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+temp/
