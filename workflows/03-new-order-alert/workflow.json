@@ -1,0 +1,175 @@
+{
+  "name": "Shoper - New Order Alert (Auto)",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Shoper - New Order Alert\n\n\u23f0 Checks every 5 minutes\n\ud83d\udcf1 Instant Slack alert\n\ud83d\udd14 Only NEW orders\n\n**Features:**\n- Detects new orders\n- Sends details to Slack\n- Uses Static Data for tracking\n\n**Manual run:**\n- Click 'Test workflow'",
+        "height": 380,
+        "width": 380
+      },
+      "id": "sticky-note-1",
+      "name": "Info",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        240,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger-1",
+      "name": "Every 5 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        688,
+        304
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "manual-trigger-1",
+      "name": "When clicking 'Test workflow'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        688,
+        464
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ============================================\n// Shoper API - Get Orders (Two-Step Auth)\n// ============================================\n\nconst shopUrl = 'YOUR_SHOP.shoper.pl';\nconst username = 'YOUR_SHOPER_USERNAME';\nconst password = 'YOUR_SHOPER_PASSWORD';\n\n// Step 1: Get access_token from /auth endpoint\nconst authString = Buffer.from(username + ':' + password).toString('base64');\n\ntry {\n  const authResponse = await this.helpers.httpRequest({\n    method: 'POST',\n    url: 'https://' + shopUrl + '/webapi/rest/auth',\n    headers: {\n      'Authorization': 'Basic ' + authString,\n      'Content-Type': 'application/json'\n    }\n  });\n\n  if (!authResponse.access_token) {\n    console.error('Could not get access token');\n    return [{ json: { error: 'Could not get access token from Shoper API' } }];\n  }\n\n  const accessToken = authResponse.access_token;\n\n  // Step 2: Get orders using Bearer token\n  const response = await this.helpers.httpRequest({\n    method: 'GET',\n    url: `https://${shopUrl}/webapi/rest/orders?limit=50&order=order_id+DESC`,\n    headers: {\n      'Authorization': 'Bearer ' + accessToken,\n      'Content-Type': 'application/json'\n    }\n  });\n\n  // Return orders list\n  const orders = response.list || [];\n  return orders.map(order => ({ json: order }));\n\n} catch (error) {\n  console.error('Error fetching orders:', error.message);\n  return [{ json: { error: error.message } }];\n}"
+      },
+      "id": "get-orders-1",
+      "name": "Get Orders from Shoper",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        912,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ============================================\n// Filter NEW orders only\n// ============================================\n\n// Get all orders from previous node\nconst orders = $input.all();\n\nif (!orders || orders.length === 0) {\n  return [];\n}\n\n// Check if there's an error from previous node\nif (orders[0].json.error) {\n  console.error('Error from previous node:', orders[0].json.error);\n  return [];\n}\n\n// Get static data using $getWorkflowStaticData()\nconst staticData = $getWorkflowStaticData('global');\nconst lastOrderId = staticData.lastOrderId || 0;\n\nconsole.log('Last checked order_id:', lastOrderId);\n\nlet newOrders = [];\n\n// If first run (lastOrderId = 0), show the latest order\nif (lastOrderId === 0 && orders.length > 0) {\n  console.log('First run - showing latest order');\n  newOrders = [orders[0]]; // Only the latest order\n} else {\n  // Filter only NEW orders (order_id > lastOrderId)\n  newOrders = orders.filter(order => {\n    const orderId = order.json.order_id || 0;\n    return orderId > lastOrderId;\n  });\n}\n\nconsole.log('Found new orders:', newOrders.length);\n\n// Update lastOrderId with the highest order_id from ALL orders\nif (orders.length > 0) {\n  const maxOrderId = Math.max(...orders.map(o => o.json.order_id || 0));\n  staticData.lastOrderId = maxOrderId;\n  console.log('Updated lastOrderId to:', maxOrderId);\n}\n\n// Return new orders\nreturn newOrders;"
+      },
+      "id": "filter-new-1",
+      "name": "Filter New Orders",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ============================================\n// Format Slack Message\n// ============================================\n\nconst orders = $input.all();\n\nif (!orders || orders.length === 0) {\n  return [];\n}\n\nconst messages = orders.map(order => {\n  const o = order.json;\n  \n  // Extract key information\n  const orderId = o.order_id || 'N/A';\n  const orderCode = o.code || 'N/A';\n  const date = (o.date || '').substring(0, 19).replace('T', ' ');\n  const sum = parseFloat(o.sum || 0).toFixed(2);  // Konwertuj na float\n  const email = o.email || 'brak';\n  const isPaid = o.is_paid ? ':white_check_mark: TAK' : ':x: NIE';\n  \n  // Billing address\n  const billing = o.billing_address || {};\n  const customerName = `${billing.firstname || ''} ${billing.lastname || ''}`.trim() || 'Brak danych';\n  const company = billing.company || '';\n  const city = billing.city || 'brak';\n  const phone = billing.phone || 'brak';\n  \n  // Delivery address\n  const delivery = o.delivery_address || {};\n  const deliveryCity = delivery.city || 'brak';\n  const deliveryStreet = delivery.street1 || 'brak';\n  \n  // Order URL\n  const orderUrl = `https://YOUR_SHOP.shoper.pl/admin/orders/details/${orderId}`;\n  \n  // Format message with Slack formatting\n  const message = `:bell: *NOWE ZAM\u00d3WIENIE*\\n\\n` +\n    `:clipboard: *Zam\u00f3wienie:* #${orderId} (${orderCode})\\n` +\n    `:calendar: *Data:* ${date}\\n` +\n    `:moneybag: *Warto\u015b\u0107:* ${sum} PLN\\n` +\n    `:credit_card: *Op\u0142acone:* ${isPaid}\\n\\n` +\n    `:bust_in_silhouette: *Klient:*\\n` +\n    `   Imi\u0119 i nazwisko: ${customerName}\\n` +\n    (company ? `   Firma: ${company}\\n` : '') +\n    `   Email: ${email}\\n` +\n    `   Telefon: ${phone}\\n` +\n    `   Miasto: ${city}\\n\\n` +\n    `:package: *Dostawa:*\\n` +\n    `   Miasto: ${deliveryCity}\\n` +\n    `   Adres: ${deliveryStreet}\\n\\n` +\n    `:link: <${orderUrl}|Otw\u00f3rz w panelu>`;\n  \n  return { json: { message } };\n});\n\nreturn messages;"
+      },
+      "id": "format-message-1",
+      "name": "Format Slack Message",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1344,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "select": "user",
+        "user": {
+          "__rl": true,
+          "value": "YOUR_SLACK_USER_ID",
+          "mode": "list"
+        },
+        "text": "={{ $json.message }}",
+        "otherOptions": {}
+      },
+      "id": "send-slack-1",
+      "name": "Send to Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [
+        1568,
+        304
+      ],
+      "credentials": {
+        "slackApi": {
+          "id": "YOUR_SLACK_CREDENTIAL_ID",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Every 5 Minutes": {
+      "main": [
+        [
+          {
+            "node": "Get Orders from Shoper",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking 'Test workflow'": {
+      "main": [
+        [
+          {
+            "node": "Get Orders from Shoper",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Orders from Shoper": {
+      "main": [
+        [
+          {
+            "node": "Filter New Orders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter New Orders": {
+      "main": [
+        [
+          {
+            "node": "Format Slack Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Slack Message": {
+      "main": [
+        [
+          {
+            "node": "Send to Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

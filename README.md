@@ -82,19 +82,21 @@ Automatyczny zapis wszystkich zamówień do Google Sheets w czasie rzeczywistym.
 
 ---
 
-### 3️⃣ Alert o Nowym Zamówieniu
+### 3️⃣ [Alert o Nowym Zamówieniu](workflows/03-new-order-alert/)
 
-**Status:** 🚧 W przygotowaniu
+**Status:** ✅ Gotowe do użycia
 
-Natychmiastowe powiadomienie na Telegram przy każdym nowym zamówieniu.
+Natychmiastowy alert na Slack przy każdym nowym zamówieniu w sklepie Shoper.
 
-**Planowane funkcje:**
-- 🔔 Instant notification na Telegram
-- 📦 Szczegóły zamówienia i klienta
-- 💰 Wartość zamówienia
-- 📍 Status płatności i wysyłki
+**Funkcje:**
+- 🔄 Automatyczne sprawdzanie co 5 minut
+- 📱 Instant alert na Slack
+- 📊 Szczegółowe informacje o zamówieniu (numer, wartość, status płatności)
+- 👤 Dane klienta (imię, nazwisko, email, telefon, adres)
+- 🔗 Link do zamówienia w panelu Shoper
+- 💾 Inteligentne wykrywanie - wysyła tylko NOWE zamówienia
 
-**Dostępne wkrótce!**
+**[📖 Pełna dokumentacja →](workflows/03-new-order-alert/)**
 
 ---
 
