@@ -9,40 +9,112 @@ Profesjonalne workflow n8n do automatyzacji Twojego sklepu Shoper - **całkowici
 
 Stworzone przez ekspertów z [BaseAI.pl](https://baseai.pl) - specjalistów od automatyzacji e-commerce.
 
+> 💡 **To są przykładowe, proste workflow** pokazujące możliwości automatyzacji Shoper + n8n.
+>
+> Potrzebujesz czegoś bardziej zaawansowanego? [Skontaktuj się z nami](https://baseai.pl) - tworzymy dedykowane rozwiązania!
+
 ---
 
-## 📦 Co znajdziesz w tym repozytorium?
+## 🎯 Trzy sposoby wykorzystania
 
-### ✅ Flow #1: Codzienny Raport Zamówień + AI
+### 1️⃣ Samodzielnie (FREE)
+- ✅ Pobierz workflow z tego repo
+- ✅ Zainstaluj na własnym n8n
+- ✅ Skonfiguruj według instrukcji
+- ✅ **Koszt:** 0 zł + koszty serwera
 
-**Co robi:**
-- 🕐 Automatycznie o 23:58 każdego dnia
-- 📊 Pobiera dzisiejsze zamówienia z Shoper API
-- 🤖 AI (GPT-4o-mini) analizuje sprzedaż i tworzy inteligentny raport po polsku
-- 💬 Wysyła raport na Slack (lub dowolny kanał komunikacji)
+### 2️⃣ U nas - gotowe rozwiązanie (MANAGED)
+**Nie masz n8n? Nie chcesz się bawić w instalację?**
+
+Oferujemy gotowe rozwiązanie:
+- ☁️ **Uruchamiamy workflow u nas** (na naszej infrastrukturze BaseAI.pl)
+- 🛠️ **Wdrażamy i konfigurujemy** za Ciebie
+- 📊 **Dostajesz raporty** bez instalacji czegokolwiek
+- 🔧 **Dbamy o aktualizacje** i poprawki
+- 💬 **Dedykowany support** email/telefon
+
+**Cena:** od 99 zł/miesiąc (w zależności od liczby workflow)
+
+### 3️⃣ Dedykowane rozwiązania (PRO)
+**Potrzebujesz czegoś więcej niż podstawowe flow?**
+
+Tworzymy zaawansowane automatyzacje:
+- 🎯 Dedykowane workflow pod Twoje potrzeby
+- 🔗 Integracje z wieloma systemami (Allegro, BaseLinker, Facebook Ads)
+- 📊 Zaawansowana analityka i raporty
+- 🤖 AI dostosowane do Twojej branży
+- 💼 Pełne SLA i wsparcie
+
+**Cena:** od 997 zł (jednorazowo) lub abonament
+
+👉 **[Umów bezpłatną konsultację](https://baseai.pl)**
+
+---
+
+## 📦 Dostępne Workflow
+
+### 1️⃣ [Codzienny Raport Zamówień + AI](workflows/01-daily-orders-report/)
+
+**Status:** ✅ Gotowe do użycia
+
+Automatyczny raport sprzedażowy z inteligentną analizą AI w języku polskim.
 
 **Funkcje:**
-- ✅ Liczba zamówień
-- ✅ Łączna wartość sprzedaży
-- ✅ Lista pierwszych 10 zamówień z klientami
-- ✅ Inteligentna analiza AI w języku polskim
-- ✅ Emoji dla lepszej czytelności
-- ✅ Obsługa wielu walut (PLN, EUR, USD)
+- 🕐 Automatycznie o 23:58 każdego dnia
+- 📊 Pobiera dzisiejsze zamówienia z Shoper API
+- 🤖 AI (GPT-4o-mini) analizuje i tworzy raport po polsku
+- 💬 Wysyła raport na Slack/Telegram
+- 💰 Obsługa wielu walut (PLN, EUR, USD)
 
-**Przykładowy raport:**
-```
-📊 Podsumowanie dnia 2025-12-02:
+**[📖 Pełna dokumentacja →](workflows/01-daily-orders-report/)**
 
-📈 Kluczowe metryki:
-- Liczba zamówień: 11
-- Łączna wartość zamówień: 3 075,27 PLN
+---
 
-✨ Ocena dnia: Dzień bardzo udany! Znaczący wzrost zamówień.
+### 2️⃣ Webhook Shoper → Google Sheets
 
-💡 Rekomendacje:
-1. Rozważ zwiększone działania promocyjne
-2. Monitoruj dostępność najpopularniejszych produktów
-```
+**Status:** 🚧 W przygotowaniu
+
+Automatyczny zapis wszystkich zamówień do Google Sheets w czasie rzeczywistym.
+
+**Planowane funkcje:**
+- ⚡ Instant webhook przy nowym zamówieniu
+- 📊 Automatyczny zapis do arkusza
+- 🔄 Aktualizacja statusu zamówienia
+- 📈 Gotowe wykresy i pivoty
+
+**Dostępne wkrótce!**
+
+---
+
+### 3️⃣ Alert o Nowym Zamówieniu
+
+**Status:** 🚧 W przygotowaniu
+
+Natychmiastowe powiadomienie na Telegram przy każdym nowym zamówieniu.
+
+**Planowane funkcje:**
+- 🔔 Instant notification na Telegram
+- 📦 Szczegóły zamówienia i klienta
+- 💰 Wartość zamówienia
+- 📍 Status płatności i wysyłki
+
+**Dostępne wkrótce!**
+
+---
+
+### 4️⃣ Tygodniowy Raport Sprzedaży
+
+**Status:** 🚧 W przygotowaniu
+
+Kompleksowe podsumowanie tygodnia z analizą trendów.
+
+**Planowane funkcje:**
+- 📊 Porównanie tydzień do tygodnia
+- 📈 Wykresy trendów sprzedaży
+- 🏆 Top produkty i kategorie
+- 💡 Rekomendacje AI
+
+**Dostępne wkrótce!**
 
 ---
 
@@ -50,149 +122,100 @@ Stworzone przez ekspertów z [BaseAI.pl](https://baseai.pl) - specjalistów od a
 
 To repozytorium jest dla właścicieli sklepów Shoper, którzy chcą:
 
-- ✅ Automatyzować codzienne raporty sprzedaży
-- ✅ Oszczędzać czas na ręcznym sprawdzaniu zamówień
+- ✅ Automatyzować codzienne operacje
+- ✅ Oszczędzać czas na ręcznych czynnościach
 - ✅ Mieć inteligentne analizy AI bez kodowania
-- ✅ Otrzymywać raporty na Slack/Telegram
+- ✅ Otrzymywać alerty i raporty na Slack/Telegram
 - ✅ Zacząć przygodę z automatyzacją za darmo
 
 ---
 
-## 🚀 Instalacja
+## 🚀 Szybki Start
 
-### Wymagania
+### 1. Zainstaluj n8n
 
-- **n8n** (self-hosted lub cloud) - [Pobierz tutaj](https://n8n.io)
-- **Konto Shoper** z dostępem do API
-- **OpenAI API Key** (GPT-4o-mini ~$0.01/dzień)
-- **Slack** (opcjonalnie, można zastąpić Telegram/Email)
+**Self-hosted (Raspberry Pi, VPS):**
+```bash
+npm install -g n8n
+n8n start
+```
 
-### Krok 1: Pobierz workflow
+**Docker:**
+```bash
+docker run -d --name n8n -p 5678:5678 n8nio/n8n
+```
+
+**Cloud:** [n8n.cloud](https://n8n.cloud)
+
+### 2. Pobierz workflow
 
 ```bash
 git clone https://github.com/V-Slot-poland/shoper-n8n-free.git
-cd shoper-n8n-free
+cd shoper-n8n-free/workflows
 ```
 
-### Krok 2: Zaimportuj do n8n
+### 3. Wybierz workflow
 
-1. Otwórz n8n
-2. Kliknij **"Import from File"**
-3. Wybierz plik: `daily-orders-report.json`
-4. Workflow zostanie zaimportowany
+Przejdź do wybranego katalogu i postępuj według instrukcji w README:
 
-### Krok 3: Konfiguracja Shoper API
-
-**Utwórz użytkownika API w Shoper:**
-
-1. Zaloguj się do panelu Shoper
-2. Przejdź do: **Konfiguracja → Użytkownicy → Dodaj użytkownika**
-3. Nadaj uprawnienia do **WebAPI**
-4. Zapisz **login** i **hasło**
-
-**Wpisz dane w workflow:**
-
-W node'zie **"getDzisiejszeZamowienia Tool"** zamień:
-
-```javascript
-const shopUrl = 'YOUR_SHOP.shoper.pl';      // Twój sklep
-const username = 'YOUR_SHOPER_USERNAME';    // Login użytkownika API
-const password = 'YOUR_SHOPER_PASSWORD';    // Hasło użytkownika
-```
-
-### Krok 4: Konfiguracja OpenAI
-
-1. W n8n przejdź do **Credentials → Add Credential**
-2. Wybierz **"OpenAI"**
-3. Wklej swój **API Key** z [platform.openai.com](https://platform.openai.com/api-keys)
-4. Zapisz
-
-### Krok 5: Konfiguracja Slack
-
-1. W n8n dodaj **Slack Credentials**
-2. Autoryzuj aplikację
-3. Wybierz kanał w node'zie **"Send to Slack"**
-
-### Krok 6: Testuj!
-
-1. Kliknij **"Execute workflow"**
-2. Sprawdź czy raport pojawił się na Slack
-3. Gotowe! Workflow będzie działać automatycznie o 23:58
+- [`01-daily-orders-report/`](workflows/01-daily-orders-report/) - Codzienny raport
+- `02-webhook-to-sheets/` - Webhook → Google Sheets (wkrótce)
+- `03-new-order-alert/` - Alert o zamówieniu (wkrótce)
+- `04-weekly-report/` - Raport tygodniowy (wkrótce)
 
 ---
 
-## 📖 Jak działa?
+## 📖 Wymagania
 
-### Architektura workflow
+### Dla wszystkich workflow:
 
-```
-┌─────────────────┐
-│  Trigger        │  Daily at 23:58
-│  (Schedule)     │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  AI Agent       │  Orchestrates the flow
-│  (GPT-4o-mini)  │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  Tool: Fetch    │  1. POST /auth → get access_token
-│  Orders         │  2. GET /orders → fetch today's orders
-│                 │  3. Client-side filtering by date
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  AI Analysis    │  Creates Polish summary with:
-│                 │  - Metrics, recommendations, insights
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  Send to Slack  │  Formatted report
-└─────────────────┘
-```
+- **n8n** (self-hosted lub cloud)
+- **Konto Shoper** z dostępem do WebAPI
 
-### Kluczowe szczegóły techniczne
+### Dla workflow z AI:
 
-**Autoryzacja Shoper API:**
-- Dwuetapowa: `POST /auth` (Basic Auth) → Bearer token
-- Token ważny 30 dni
-- Dokumentacja: [developers.shoper.pl](https://developers.shoper.pl)
+- **OpenAI API Key** (GPT-4o-mini ~$0.01-0.10/dzień)
 
-**Filtrowanie zamówień:**
-- API Shoper nie wspiera `filters[date]` poprawnie
-- Rozwiązanie: client-side filtering po `substring(0, 10)`
-- Pobieramy ostatnie 50 zamówień (max API limit)
+### Dla integracji:
 
-**Timezone handling:**
-- `new Date().toISOString().split('T')[0]` - timezone-safe
-- Działa poprawnie na CET/UTC bez przesunięć
+- **Slack** lub **Telegram** (do powiadomień)
+- **Google Account** (do Google Sheets)
 
 ---
 
 ## 🆚 FREE vs PRO
 
-| Funkcja | Free (GitHub) | PRO (BaseAI.pl) |
-|---------|---------------|-----------------|
+| Kategoria | Free (GitHub) | PRO (BaseAI.pl) |
+|-----------|---------------|-----------------|
+| **Raporty** | | |
 | Codzienny raport zamówień | ✅ | ✅ |
-| Analiza AI w języku polskim | ✅ | ✅✅ (GPT-4) |
-| Integracja Slack | ✅ | ✅ |
-| Integracja Telegram | ❌ | ✅ |
-| Raporty tygodniowe/miesięczne | ❌ | ✅ |
-| Analiza trendów sprzedaży | ❌ | ✅ |
-| Alerty spadków sprzedaży | ❌ | ✅ |
-| Raport magazynowy | ❌ | ✅ |
-| Integracja z Google Analytics | ❌ | ✅ |
-| Integracja z Facebook Ads | ❌ | ✅ |
-| Pełna instalacja + konfiguracja | ❌ | ✅ |
-| Dedykowany support | ❌ | ✅ |
-| Dostosowanie do Twojej firmy | ❌ | ✅ |
+| Raport tygodniowy | ❌ | ✅ |
+| Raport miesięczny | ❌ | ✅ |
+| Analiza trendów | ❌ | ✅ |
+| Prognozy sprzedaży | ❌ | ✅ |
+| **AI** | | |
+| Podstawowa analiza (GPT-4o-mini) | ✅ | ✅ |
+| Zaawansowana analiza (GPT-4) | ❌ | ✅ |
+| Rekomendacje personalizowane | ❌ | ✅ |
+| **Alerty** | | |
+| Alert o nowym zamówieniu | ✅ | ✅ |
+| Alert spadku sprzedaży | ❌ | ✅ |
+| Alert niskiego stanu magazynowego | ❌ | ✅ |
+| **Integracje** | | |
+| Slack | ✅ | ✅ |
+| Telegram | ✅ | ✅ |
+| Google Sheets | ✅ | ✅ |
+| Google Analytics | ❌ | ✅ |
+| Facebook Ads | ❌ | ✅ |
+| BaseLinker | ❌ | ✅ |
+| Allegro | ❌ | ✅ |
+| **Support** | | |
+| GitHub Issues | ✅ | ✅ |
+| Dedykowany support email | ❌ | ✅ |
+| Pełna instalacja i konfiguracja | ❌ | ✅ |
+| Dostosowanie do firmy | ❌ | ✅ |
 
-**Cena PRO:** 297-997 zł (w zależności od pakietu)
+**Cena PRO:** 297-997 zł (jednorazowo lub abonament)
 
 👉 **[Zobacz wersję PRO na BaseAI.pl](https://baseai.pl/automatyzacje-shoper)**
 
@@ -204,7 +227,8 @@ const password = 'YOUR_SHOPER_PASSWORD';    // Hasło użytkownika
 
 - 📖 [Dokumentacja Shoper API](https://developers.shoper.pl)
 - 💬 [Forum n8n Community](https://community.n8n.io)
-- ⭐ Daj gwiazdkę na GitHub jeśli projekt Ci pomógł!
+- 🐛 [GitHub Issues](https://github.com/V-Slot-poland/shoper-n8n-free/issues)
+- ⭐ Daj gwiazdkę jeśli projekt Ci pomógł!
 
 ### Wersja PRO + Wsparcie
 
@@ -221,12 +245,34 @@ Potrzebujesz:
 
 ---
 
+## 🤝 Współpraca
+
+Chcesz pomóc w rozwoju projektu?
+
+1. Fork tego repozytorium
+2. Stwórz branch (`git checkout -b feature/amazing-feature`)
+3. Commit zmian (`git commit -m 'Add amazing feature'`)
+4. Push do brancha (`git push origin feature/amazing-feature`)
+5. Otwórz Pull Request
+
+Zobacz [CONTRIBUTING.md](CONTRIBUTING.md) po więcej szczegółów.
+
+---
+
 ## 📝 Licencja
 
 **Custom License** - Użytek własny dozwolony, sprzedaż zakazana.
 
-✅ Możesz: używać w swoim biznesie, modyfikować, uczyć się
-❌ Nie możesz: sprzedawać, oferować jako płatna usługa
+✅ **Możesz:**
+- Używać w swoim biznesie
+- Modyfikować dla własnych potrzeb
+- Uczyć się i eksperymentować
+- Dzielić się wiedzą
+
+❌ **Nie możesz:**
+- Sprzedawać tego kodu
+- Oferować jako płatna usługa
+- Usuwać informacji o autorze
 
 Pełna treść: [LICENSE](LICENSE)
 
@@ -238,36 +284,40 @@ Pełna treść: [LICENSE](LICENSE)
 **TechnOVO Sp. z o.o.** | NIP: 8961596096
 📧 admin@baseai.pl
 
-Specjalizujemy się w:
-- 🤖 Automatyzacje n8n dla sklepów online
+### Specjalizacja
+
+- 🤖 Automatyzacje n8n dla e-commerce
 - 🧠 Integracje AI (GPT-4, Claude, Gemini)
 - 📊 Analityka sprzedaży i marketingu
 - 🔗 Łączenie systemów (Shoper, BaseLinker, Allegro, etc.)
 
-**Zrealizowane projekty:**
-- 50+ automatyzacji dla e-commerce
+### Zrealizowane projekty
+
+- 50+ automatyzacji dla sklepów online
 - Integracje z Shoper, BaseLinker, Allegro, WooCommerce
 - AI chatboty dla obsługi klienta
-- Zaawansowane reportingi sprzedażowe
+- Zaawansowane dashboardy sprzedażowe
 
-**Technologie:**
-- n8n, Make, Zapier
-- OpenAI GPT-4, Claude, Gemini
-- Python, Node.js, TypeScript
-- PostgreSQL, Redis
+### Technologie
+
+- **Automation:** n8n, Make, Zapier
+- **AI:** OpenAI GPT-4, Claude, Gemini
+- **Backend:** Python, Node.js, TypeScript
+- **Data:** PostgreSQL, Redis, BigQuery
 
 ---
 
-## 🎁 Więcej darmowych flow (wkrótce)
+## 🎁 Roadmap
 
 Planowane kolejne darmowe workflow:
 
-- 📦 **Webhook Shoper → Google Sheets** - automatyczny zapis zamówień
-- 🔔 **Alert o nowym zamówieniu** - instant notification na Telegram
-- 📧 **Auto-odpowiedzi email** - inteligentne odpowiedzi AI dla klientów
-- 📊 **Tygodniowy raport sprzedaży** - podsumowanie tygodnia
+- [ ] **Webhook → Google Sheets** (Q1 2025)
+- [ ] **Alert o nowym zamówieniu** (Q1 2025)
+- [ ] **Tygodniowy raport** (Q2 2025)
+- [ ] **Automatyczne odpowiedzi email** (Q2 2025)
+- [ ] **Synchronizacja stanów magazynowych** (Q2 2025)
 
-⭐ **Daj gwiazdkę**, aby być na bieżąco z nowymi flow!
+⭐ **Daj gwiazdkę**, aby być na bieżąco!
 
 ---
 
