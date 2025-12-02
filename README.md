@@ -1,6 +1,6 @@
 # 🚀 Darmowe Automatyzacje n8n dla Shoper
 
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![License: Custom](https://img.shields.io/badge/License-Custom-orange.svg)
 ![Shoper API](https://img.shields.io/badge/Shoper-API%20v1-blue)
 ![n8n](https://img.shields.io/badge/n8n-Compatible-orange)
 ![Made by BaseAI](https://img.shields.io/badge/Made%20by-BaseAI.pl-blueviolet)
@@ -70,7 +70,7 @@ To repozytorium jest dla właścicieli sklepów Shoper, którzy chcą:
 ### Krok 1: Pobierz workflow
 
 ```bash
-git clone https://github.com/baseai-pl/shoper-n8n-free.git
+git clone https://github.com/V-Slot-poland/shoper-n8n-free.git
 cd shoper-n8n-free
 ```
 
@@ -281,8 +281,8 @@ Automatyzujemy e-commerce, żebyś Ty mógł skupić się na rozwoju biznesu.
 
 ## 📊 Stats
 
-![GitHub stars](https://img.shields.io/github/stars/baseai-pl/shoper-n8n-free?style=social)
-![GitHub forks](https://img.shields.io/github/forks/baseai-pl/shoper-n8n-free?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/baseai-pl/shoper-n8n-free?style=social)
+![GitHub stars](https://img.shields.io/github/stars/V-Slot-poland/shoper-n8n-free?style=social)
+![GitHub forks](https://img.shields.io/github/forks/V-Slot-poland/shoper-n8n-free?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/V-Slot-poland/shoper-n8n-free?style=social)
 
 *Jeśli ten projekt jest dla Ciebie wartościowy, rozważ wersję PRO i wesprzyj dalszy rozwój automatyzacji dla polskiego e-commerce!*
