@@ -100,19 +100,21 @@ Natychmiastowy alert na Slack przy każdym nowym zamówieniu w sklepie Shoper.
 
 ---
 
-### 4️⃣ Tygodniowy Raport Sprzedaży
+### 4️⃣ [Tygodniowy Raport Sprzedaży](workflows/04-weekly-report/)
 
-**Status:** 🚧 W przygotowaniu
+**Status:** ✅ Gotowe do użycia
 
-Kompleksowe podsumowanie tygodnia z analizą trendów.
+Kompleksowe podsumowanie tygodnia z analizą trendów i porównaniem WoW.
 
-**Planowane funkcje:**
-- 📊 Porównanie tydzień do tygodnia
-- 📈 Wykresy trendów sprzedaży
-- 🏆 Top produkty i kategorie
-- 💡 Rekomendacje AI
+**Funkcje:**
+- 🕐 Automatycznie każdy poniedziałek o 08:00
+- 📊 Porównanie tydzień do tygodnia (WoW)
+- 📆 Dzienny breakdown (Pon-Niedz)
+- 🤖 Zaawansowana analiza AI
+- 📈 Trend insights i rekomendacje
+- 💬 Wysyłka na Slack/Telegram
 
-**Dostępne wkrótce!**
+**[📖 Pełna dokumentacja →](workflows/04-weekly-report/)**
 
 ---
 
@@ -156,10 +158,10 @@ cd shoper-n8n-free/workflows
 
 Przejdź do wybranego katalogu i postępuj według instrukcji w README:
 
-- [`01-daily-orders-report/`](workflows/01-daily-orders-report/) - Codzienny raport
+- [`01-daily-orders-report/`](workflows/01-daily-orders-report/) - Codzienny raport ✅
+- [`03-new-order-alert/`](workflows/03-new-order-alert/) - Alert o zamówieniu ✅
+- [`04-weekly-report/`](workflows/04-weekly-report/) - Raport tygodniowy ✅
 - `02-webhook-to-sheets/` - Webhook → Google Sheets (wkrótce)
-- `03-new-order-alert/` - Alert o zamówieniu (wkrótce)
-- `04-weekly-report/` - Raport tygodniowy (wkrótce)
 
 ---
 
@@ -307,9 +309,10 @@ Pełna treść: [LICENSE](LICENSE)
 
 Planowane kolejne darmowe workflow:
 
+- [x] **Codzienny raport zamówień** ✅ (Done)
+- [x] **Alert o nowym zamówieniu** ✅ (Done)
+- [x] **Tygodniowy raport** ✅ (Done - Dec 2025)
 - [ ] **Webhook → Google Sheets** (Q1 2025)
-- [ ] **Alert o nowym zamówieniu** (Q1 2025)
-- [ ] **Tygodniowy raport** (Q2 2025)
 - [ ] **Automatyczne odpowiedzi email** (Q2 2025)
 - [ ] **Synchronizacja stanów magazynowych** (Q2 2025)
 
